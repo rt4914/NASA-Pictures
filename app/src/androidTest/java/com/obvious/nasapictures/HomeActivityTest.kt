@@ -1,9 +1,14 @@
 package com.obvious.nasapictures
 
 import android.content.Intent
+import androidx.test.espresso.intent.Intents
+import androidx.test.espresso.intent.Intents.intended
+import androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent
 import androidx.test.core.app.ActivityScenario.launch
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.intent.matcher.IntentMatchers.hasExtra
 import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -11,10 +16,14 @@ import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
 import com.google.common.truth.Truth.assertThat
 import com.obvious.nasapictures.OrientationChangeAction.Companion.orientationLandscape
+import com.obvious.nasapictures.RecyclerViewMatcher.Companion.atPosition
 import com.obvious.nasapictures.RecyclerViewMatcher.Companion.atPositionOnView
 import com.obvious.nasapictures.RecyclerViewMatcher.Companion.hasItemCount
 import com.obvious.nasapictures.home.HomeActivity
+import com.obvious.nasapictures.singlepicture.PictureActivity
 import org.hamcrest.CoreMatchers.containsString
+import org.junit.After
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -31,6 +40,16 @@ class HomeActivityTest {
   )
 
   private val context = InstrumentationRegistry.getInstrumentation().targetContext
+
+  @Before
+  fun setUp() {
+    Intents.init()
+  }
+
+  @After
+  fun tearDown() {
+    Intents.release()
+  }
 
   @Test
   fun testHomeActivity_labelIsCorrect() {
@@ -79,6 +98,21 @@ class HomeActivityTest {
           withContentDescription(containsString("Starburst Galaxy M94 from Hubble"))
         )
       )
+    }
+  }
+
+
+  @Test
+  fun testHomeActivity_item1Click_opensPictureActivitySuccessfully() {
+    launch<HomeActivity>(createHomeActivityIntent()).use {
+      onView(
+        atPosition(
+          recyclerViewId = R.id.picture_recycler_view,
+          position = 1
+        )
+      ).perform(click())
+      intended(hasComponent(PictureActivity::class.java.name))
+      intended(hasExtra(PictureActivity.PICTURE_INDEX, 1))
     }
   }
 

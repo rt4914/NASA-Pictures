@@ -1,4 +1,5 @@
 <resources>
   <string name="app_name">NASA Pictures</string>
   <string name="home_activity_title">NASA Pictures</string>
+  <string name="picture_activity_title">Picture Details</string>
 </resources>

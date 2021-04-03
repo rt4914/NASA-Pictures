@@ -7,9 +7,10 @@ import com.obvious.nasapictures.model.PictureData
 class PictureItemViewModel(
   private val activity: AppCompatActivity,
   val pictureData: PictureData,
-  val index: Int
+  private val index: Int
 ) : ViewModel() {
 
   fun onItemClick() {
+    (activity as PictureItemClickListener).onPictureClicked(index)
   }
 }

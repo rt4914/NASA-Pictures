@@ -20,6 +20,9 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+    <activity
+      android:name=".singlepicture.PictureActivity"
+      android:label="@string/picture_activity_title"
+      android:theme="@style/FullScreenTheme" />
   </application>
-
 </manifest>
