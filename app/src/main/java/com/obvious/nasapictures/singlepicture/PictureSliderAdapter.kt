@@ -10,7 +10,7 @@ import com.obvious.nasapictures.databinding.PictureFullScreenItemBinding
 
 class PictureSliderAdapter(
   activity: AppCompatActivity,
-  private val pictureDataList: List<PictureData>
+  private val pictureDataList: List<PictureDataViewModel>
 ) : PagerAdapter() {
   private val inflater: LayoutInflater = LayoutInflater.from(activity)
   override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
@@ -28,7 +28,7 @@ class PictureSliderAdapter(
         view,
         /* attachToRoot= */ false
       )
-    binding.pictureData = pictureDataList[position]
+    binding.viewModel = pictureDataList[position]
     view.addView(binding.root)
     return binding.root
   }

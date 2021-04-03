@@ -19,7 +19,21 @@ class PictureActivityPresenter : AppCompatActivity() {
 
     pictureActivityViewModel = PictureActivityViewModel(activity, pictureDataList[index])
 
-    binding.imageSliderViewPager.adapter = PictureSliderAdapter(activity, pictureDataList)
+    binding.imageSliderViewPager.adapter = PictureSliderAdapter(activity, createViewModelItemList(activity))
     binding.imageSliderViewPager.setCurrentItem(index, /* smoothScroll= */ true)
+  }
+
+  private fun createViewModelItemList(activity: AppCompatActivity): ArrayList<PictureDataViewModel> {
+    val pictureDataViewModelList = ArrayList<PictureDataViewModel>()
+    pictureDataList.forEachIndexed { index, pictureData ->
+      pictureDataViewModelList.add(
+        PictureDataViewModel(
+          activity,
+          pictureData,
+          index
+        )
+      )
+    }
+    return pictureDataViewModelList
   }
 }
