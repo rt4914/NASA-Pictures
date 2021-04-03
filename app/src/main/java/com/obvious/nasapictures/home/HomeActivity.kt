@@ -1,12 +1,16 @@
 package com.obvious.nasapictures.home
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.obvious.nasapictures.R
+import androidx.appcompat.app.AppCompatActivity
 
 class HomeActivity : AppCompatActivity() {
+
+  lateinit var homeActivityPresenter: HomeActivityPresenter
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.home_activity)
+
+    homeActivityPresenter = HomeActivityPresenter()
+    homeActivityPresenter.handleOnCreate(this)
   }
 }
