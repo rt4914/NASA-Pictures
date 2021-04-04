@@ -36,6 +36,7 @@ android {
     unitTests {
       includeAndroidResources = true
     }
+    animationsDisabled = true
   }
 }
 
@@ -53,10 +54,15 @@ dependencies {
       "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
   )
   testImplementation(
-      'androidx.test.ext:junit:1.1.0',
-      'androidx.test.ext:truth:1.1.0',
       'androidx.test:core-ktx:1.1.0',
+      'androidx.test.espresso:espresso-core:3.3.0',
+      'androidx.test.espresso:espresso-contrib:3.3.0',
+      'androidx.test.espresso:espresso-intents:3.1.0',
+      'androidx.test.ext:truth:1.1.0',
+      'androidx.test.ext:junit:1.1.2',
       'androidx.test.ext:junit-ktx:1.1.0',
+      'androidx.test:rules:1.2.0',
+      'androidx.test:runner:1.2.0',
       'junit:junit:4.13.2',
       'org.robolectric:robolectric:4.0.2'
   )
@@ -64,8 +70,8 @@ dependencies {
       'androidx.test.espresso:espresso-core:3.3.0',
       'androidx.test.espresso:espresso-contrib:3.3.0',
       'androidx.test.espresso:espresso-intents:3.1.0',
-      'androidx.test.ext:truth:1.1.0',
       'androidx.test.ext:junit:1.1.2',
+      'androidx.test.ext:truth:1.1.0',
       'androidx.test:rules:1.2.0',
       'androidx.test:runner:1.2.0',
   )

@@ -189,6 +189,30 @@ class PictureActivityTest {
     }
   }
 
+  @Test
+  fun testPictureActivity_swipeRight_titleText_isCorrect() {
+    launch<PictureActivity>(createPictureActivityIntent(index = 1)).use {
+      onView(withId(R.id.image_slider_view_pager)).perform(swipeRight())
+      // Note to Reviewer: This is not the best way to write this test case but because it was
+      // failing because of effective visibility I had to use this function for now.
+      onView(allOf(withId(R.id.title_text_view), isDisplayingAtLeast(80))).check(
+        matches(withText(TITLE_0))
+      )
+    }
+  }
+
+  @Test
+  fun testPictureActivity_swipeLeft_titleText_isCorrect() {
+    launch<PictureActivity>(createPictureActivityIntent(index = 0)).use {
+      onView(withId(R.id.image_slider_view_pager)).perform(swipeLeft())
+      // Note to Reviewer: This is not the best way to write this test case but because it was
+      // failing because of effective visibility I had to use this function for now.
+      onView(allOf(withId(R.id.title_text_view), isDisplayingAtLeast(80))).check(
+        matches(withText(TITLE_1))
+      )
+    }
+  }
+
   private fun createPictureActivityIntent(index: Int): Intent {
     return PictureActivity.createIntent(context, index)
   }
