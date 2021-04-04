@@ -31,7 +31,7 @@ I have used interface to send information to activities correctly.
 
 [Talkback / Screen Reader Output](https://drive.google.com/file/d/1hsQS9TL6tMDO7lCNMMyKLCMukZjSle1l/view?usp=sharing)
 
-[Signed APK Link](https://drive.google.com/file/d/1nAsedN0CfoKBG_oyvhaaDlLa6j4q2wTS/view?usp=sharing)
+[Signed APK Link](https://drive.google.com/file/d/1nAsedN0CfoKBG_oyvhaaDlLa6j4q2wTS/view?usp=sharing) **4.3 MB Size**
 
 ## Test Output
 ### Roboelectric
