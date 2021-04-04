@@ -3,4 +3,6 @@
   <string name="home_activity_title">NASA Pictures</string>
   <string name="picture_activity_title">Picture Details</string>
   <string name="copyright_name">© %s</string>
+  <string name="close">Close</string>
+  <string name="current_index">%s/%s</string>
 </resources>

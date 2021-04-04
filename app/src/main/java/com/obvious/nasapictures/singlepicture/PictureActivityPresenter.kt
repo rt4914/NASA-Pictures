@@ -2,6 +2,7 @@ package com.obvious.nasapictures.singlepicture
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.viewpager.widget.ViewPager
 import com.obvious.nasapictures.R
 import com.obvious.nasapictures.databinding.PictureActivityBinding
 import com.obvious.nasapictures.model.PictureData
@@ -17,10 +18,27 @@ class PictureActivityPresenter : AppCompatActivity() {
       DataBindingUtil.setContentView(activity, R.layout.picture_activity)
     pictureDataList = JsonDataRetriever(activity).pictureDataList
 
-    pictureActivityViewModel = PictureActivityViewModel(activity, pictureDataList[index])
+    pictureActivityViewModel = PictureActivityViewModel(activity, pictureDataList.size)
+    pictureActivityViewModel.currentIndex.set(index)
 
-    binding.imageSliderViewPager.adapter = PictureSliderAdapter(activity, createViewModelItemList(activity))
+    binding.viewModel = pictureActivityViewModel
+
+    binding.imageSliderViewPager.adapter =
+      PictureSliderAdapter(activity, createViewModelItemList(activity))
     binding.imageSliderViewPager.setCurrentItem(index, /* smoothScroll= */ true)
+
+    binding.imageSliderViewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+
+      override fun onPageScrollStateChanged(state: Int) {
+      }
+
+      override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+      }
+
+      override fun onPageSelected(position: Int) {
+        pictureActivityViewModel.currentIndex.set(position + 1)
+      }
+    })
   }
 
   private fun createViewModelItemList(activity: AppCompatActivity): ArrayList<PictureDataViewModel> {
@@ -28,7 +46,6 @@ class PictureActivityPresenter : AppCompatActivity() {
     pictureDataList.forEachIndexed { index, pictureData ->
       pictureDataViewModelList.add(
         PictureDataViewModel(
-          activity,
           pictureData,
           index
         )

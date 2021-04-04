@@ -5,7 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class PictureActivity : AppCompatActivity() {
+class PictureActivity : AppCompatActivity(), CloseIconClickListener {
   companion object {
     internal const val PICTURE_INDEX = "PictureActivity.picture_index"
 
@@ -24,5 +24,9 @@ class PictureActivity : AppCompatActivity() {
 
     pictureActivityPresenter = PictureActivityPresenter()
     pictureActivityPresenter.handleOnCreate(this, index)
+  }
+
+  override fun onCloseIconClicked() {
+    this.finish()
   }
 }

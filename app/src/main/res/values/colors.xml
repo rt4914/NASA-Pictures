@@ -10,4 +10,5 @@
   <color name="white">#FFFFFF</color>
 
   <color name="screenBackground">#EEEEFF</color>
+  <color name="translucent">#FFFFFF</color>
 </resources>
