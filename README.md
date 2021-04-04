@@ -30,5 +30,5 @@ This screen displays the full size image along with the metadata like title, des
 
 ## Notes for Reviewer
 - I normally keep UI as simple and dynamic as possible and therefore I have chosen not to introduce custom animations.
-- As per the [Task] definition I had shown image in full screen which meant that the data can come over the screen which I think is not a good practice if we are targetting accessiblity users too.
+- As per the [Task](https://github.com/rt4914/NASA-Pictures/blob/main/README.md#task) definition I had shown image in full screen which meant that the data can come over the screen which I think is not a good practice if we are targetting accessiblity users too.
 - ViewPager2 related tests were failing when using `swipeLeft()` and `swipeRight()` because of which I have excluded those tests for now.
