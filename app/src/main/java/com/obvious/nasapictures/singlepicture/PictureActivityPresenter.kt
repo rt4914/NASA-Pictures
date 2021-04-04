@@ -2,7 +2,7 @@ package com.obvious.nasapictures.singlepicture
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
 import com.obvious.nasapictures.R
 import com.obvious.nasapictures.databinding.PictureActivityBinding
 import com.obvious.nasapictures.model.PictureData
@@ -19,16 +19,16 @@ class PictureActivityPresenter : AppCompatActivity() {
     pictureDataList = JsonDataRetriever(activity).pictureDataList
 
     pictureActivityViewModel = PictureActivityViewModel(activity, pictureDataList.size)
-    pictureActivityViewModel.currentIndex.set(index)
+    pictureActivityViewModel.currentIndex.set(index + 1)
 
     binding.viewModel = pictureActivityViewModel
 
     binding.imageSliderViewPager.adapter =
-      PictureSliderAdapter(activity, createViewModelItemList(activity))
-    binding.imageSliderViewPager.setCurrentItem(index, /* smoothScroll= */ true)
+      PictureSliderAdapter(createViewModelItemList(activity))
+    binding.imageSliderViewPager.setCurrentItem(index, /* smoothScroll= */ false)
 
-    binding.imageSliderViewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-
+    binding.imageSliderViewPager.registerOnPageChangeCallback(object :
+      ViewPager2.OnPageChangeCallback() {
       override fun onPageScrollStateChanged(state: Int) {
       }
 

@@ -101,7 +101,6 @@ class HomeActivityTest {
     }
   }
 
-
   @Test
   fun testHomeActivity_item1Click_opensPictureActivitySuccessfully() {
     launch<HomeActivity>(createHomeActivityIntent()).use {

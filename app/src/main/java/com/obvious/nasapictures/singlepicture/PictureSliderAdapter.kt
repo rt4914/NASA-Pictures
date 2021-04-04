@@ -1,42 +1,35 @@
 package com.obvious.nasapictures.singlepicture
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager.widget.PagerAdapter
-import com.obvious.nasapictures.model.PictureData
+import androidx.recyclerview.widget.RecyclerView
 import com.obvious.nasapictures.databinding.PictureFullScreenItemBinding
 
-class PictureSliderAdapter(
-  activity: AppCompatActivity,
-  private val pictureDataList: List<PictureDataViewModel>
-) : PagerAdapter() {
-  private val inflater: LayoutInflater = LayoutInflater.from(activity)
-  override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-    container.removeView(`object` as View)
-  }
-
-  override fun getCount(): Int {
-    return pictureDataList.size
-  }
-
-  override fun instantiateItem(view: ViewGroup, position: Int): Any {
+class PictureSliderAdapter(private val pictureDataList: List<PictureDataViewModel>) :
+  RecyclerView.Adapter<PictureSliderAdapter.PagerViewHolder>() {
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagerViewHolder {
+    val inflater = LayoutInflater.from(parent.context)
     val binding =
       PictureFullScreenItemBinding.inflate(
         inflater,
-        view,
+        parent,
         /* attachToRoot= */ false
       )
-    binding.viewModel = pictureDataList[position]
-    view.addView(binding.root)
-    return binding.root
+    return PagerViewHolder(binding)
   }
 
-  override fun isViewFromObject(
-    view: View,
-    `object`: Any
-  ): Boolean {
-    return view == `object`
+  override fun getItemCount(): Int {
+    return pictureDataList.size
+  }
+
+  override fun onBindViewHolder(holder: PagerViewHolder, position: Int) {
+    holder.bind(pictureDataList[position])
+  }
+
+  inner class PagerViewHolder(private val binding: PictureFullScreenItemBinding) :
+    RecyclerView.ViewHolder(binding.root) {
+    internal fun bind(pictureDataViewModel: PictureDataViewModel) {
+      binding.viewModel = pictureDataViewModel
+    }
   }
 }
