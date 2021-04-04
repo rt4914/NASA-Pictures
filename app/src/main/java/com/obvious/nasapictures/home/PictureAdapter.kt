@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.obvious.nasapictures.databinding.PictureItemBinding
 
+/** Adapter to display list of pictures in [HomeActivity]. */
 class PictureAdapter(
   private val pictureList: MutableList<PictureItemViewModel>
 ) : RecyclerView.Adapter<PictureAdapter.PictureItemViewHolder>() {

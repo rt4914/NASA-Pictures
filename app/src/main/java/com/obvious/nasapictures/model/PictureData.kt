@@ -1,5 +1,6 @@
 package com.obvious.nasapictures.model
 
+/** Data class for PictureData to hold json content. */
 data class PictureData(
   val copyright: String,
   val date: String,

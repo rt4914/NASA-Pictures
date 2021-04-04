@@ -6,6 +6,7 @@ import com.google.gson.reflect.TypeToken
 import com.obvious.nasapictures.model.PictureData
 import java.io.IOException
 
+/** Loads json file and converts it into PictureData list. */
 class JsonDataRetriever(private val context: Context) {
 
   val pictureDataList: List<PictureData>

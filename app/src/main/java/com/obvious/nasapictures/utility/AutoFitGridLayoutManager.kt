@@ -6,7 +6,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Recycler
 
-// Reference: https://www.journaldev.com/13792/android-gridlayoutmanager-example
+/**
+ * Custom GridLayoutManager to make sure that we can dynamically generate span count as per device
+ * size.
+ *
+ * Reference: https://www.journaldev.com/13792/android-gridlayoutmanager-example
+ */
 class AutoFitGridLayoutManager(context: Context?, columnWidth: Int) :
   GridLayoutManager(context, 1) {
   private var columnWidth = 0

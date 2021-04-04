@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.obvious.nasapictures.model.PictureData
 
+/** ViewModel for [picture_activity.xml].  */
 class PictureActivityViewModel(
   private val activity: AppCompatActivity,
   val totalPictures: Int

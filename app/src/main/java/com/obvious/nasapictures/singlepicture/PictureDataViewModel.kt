@@ -6,9 +6,9 @@ import android.widget.TextView
 import androidx.lifecycle.ViewModel
 import com.obvious.nasapictures.model.PictureData
 
+/** ViewModel for [picture_full_screen_item.xml] in [PictureActivity].  */
 class PictureDataViewModel(
-  val pictureData: PictureData,
-  val index: Int
+  val pictureData: PictureData
 ) : ViewModel() {
 
   fun onExplanationTextClick(view: View) {

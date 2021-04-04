@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.obvious.nasapictures.databinding.PictureFullScreenItemBinding
 
+/** Adapter to slide between content in ViewPager. */
 class PictureSliderAdapter(private val pictureDataList: List<PictureDataViewModel>) :
   RecyclerView.Adapter<PictureSliderAdapter.PagerViewHolder>() {
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagerViewHolder {

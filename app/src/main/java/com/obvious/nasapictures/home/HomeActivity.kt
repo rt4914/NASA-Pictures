@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.obvious.nasapictures.singlepicture.PictureActivity
 
+/** Activity for displaying picture list in home screen.  */
 class HomeActivity : AppCompatActivity(), PictureItemClickListener {
 
   lateinit var homeActivityPresenter: HomeActivityPresenter

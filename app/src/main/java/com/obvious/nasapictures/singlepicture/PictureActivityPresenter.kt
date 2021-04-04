@@ -5,9 +5,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.viewpager2.widget.ViewPager2
 import com.obvious.nasapictures.R
 import com.obvious.nasapictures.databinding.PictureActivityBinding
+import com.obvious.nasapictures.home.HomeActivity
 import com.obvious.nasapictures.model.PictureData
 import com.obvious.nasapictures.utility.JsonDataRetriever
 
+/** Presenter for [PictureActivity].  */
 class PictureActivityPresenter : AppCompatActivity() {
 
   lateinit var pictureActivityViewModel: PictureActivityViewModel
@@ -43,13 +45,8 @@ class PictureActivityPresenter : AppCompatActivity() {
 
   private fun createViewModelItemList(activity: AppCompatActivity): ArrayList<PictureDataViewModel> {
     val pictureDataViewModelList = ArrayList<PictureDataViewModel>()
-    pictureDataList.forEachIndexed { index, pictureData ->
-      pictureDataViewModelList.add(
-        PictureDataViewModel(
-          pictureData,
-          index
-        )
-      )
+    pictureDataList.forEach { pictureData ->
+      pictureDataViewModelList.add(PictureDataViewModel(pictureData))
     }
     return pictureDataViewModelList
   }

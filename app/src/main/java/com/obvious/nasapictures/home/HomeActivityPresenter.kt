@@ -8,6 +8,7 @@ import com.obvious.nasapictures.model.PictureData
 import com.obvious.nasapictures.utility.AutoFitGridLayoutManager
 import com.obvious.nasapictures.utility.JsonDataRetriever
 
+/** Presenter for [HomeActivity].  */
 class HomeActivityPresenter {
   lateinit var pictureDataList: List<PictureData>
 

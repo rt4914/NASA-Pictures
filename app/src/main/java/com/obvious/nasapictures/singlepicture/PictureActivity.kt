@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
+/** Activity for displaying single picture content.  */
 class PictureActivity : AppCompatActivity(), CloseIconClickListener {
   companion object {
     internal const val PICTURE_INDEX = "PictureActivity.picture_index"

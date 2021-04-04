@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import com.obvious.nasapictures.model.PictureData
 
+/** ViewModel for [picture_item.xml] in [HomeActivity].  */
 class PictureItemViewModel(
   private val activity: AppCompatActivity,
   val pictureData: PictureData,
