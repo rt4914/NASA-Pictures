@@ -39,10 +39,3 @@ I have used interface to send information to activities correctly.
 
 ### Espresso
 <img width="250" alt="Screenshot 2021-04-04 at 9 27 53 PM" src="https://user-images.githubusercontent.com/9396084/113514563-09aa1180-958d-11eb-8d18-ec5d1e1e39b5.png">
-
-## Notes for Reviewer
-- I normally keep UI as simple and dynamic as much possible and therefore I have chosen not to introduce custom animations.
-- As per the [Task](https://github.com/rt4914/NASA-Pictures/blob/main/README.md#task) definition I had shown image in full screen which meant that the data can come over the screen which I think is not a good practice if we are targetting accessiblity users too.
-- I have introduced `AutoFitGridLayoutManager` which helps to dynamically calculate the span so that the UI can look consistent across devices.
-- Used `Gson` library to parse data automatically
-- I have also used `DataBinding` in this project.
